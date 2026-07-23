@@ -1,0 +1,36 @@
+title: M365 Mailbox SMTP Forwarding with Local Delivery
+id: ce94f99d-d031-47e4-ba6a-812556a81769
+status: experimental
+description: Identifies Microsoft 365 mailbox changes that configure SMTP forwarding while continuing to deliver messages to the original mailbox.
+references:
+  - https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/set-mailbox
+  - https://learn.microsoft.com/en-us/exchange/recipients-in-exchange-online/manage-user-mailboxes/configure-email-forwarding
+  - https://attack.mitre.org/techniques/T1114/003/
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-23
+license: MIT
+tags:
+  - attack.collection
+  - attack.t1114.003
+logsource:
+  product: m365
+  service: exchange
+detection:
+  selection_operation:
+    Operation: Set-Mailbox
+  selection_parameters:
+    Parameters|contains|all:
+      - ForwardingSmtpAddress
+      - DeliverToMailboxAndForward
+      - 'True'
+  condition: selection_operation and selection_parameters
+fields:
+  - UserId
+  - ClientIP
+  - Operation
+  - Parameters
+  - ObjectId
+falsepositives:
+  - Approved administrator configuration of mailbox forwarding for business continuity or delegated access.
+  - Legitimate mailbox migration, shared mailbox, or employee transition workflows.
+level: high

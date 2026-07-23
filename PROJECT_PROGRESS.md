@@ -5,16 +5,17 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 ## Project Summary
 
 - **Target:** 15 original Sigma detection rules
+- **Rules completed:** 2 of 15
 - **Development period:** 10 days
 - **Current version:** Pre-release
-- **Current phase:** Repository setup and Sigma fundamentals
+- **Current phase:** Day 2 BEC and phishing detections completed
 
 ## Development Roadmap
 
 | Day | Focus | Status |
 |---|---|---|
-| Day 1 | Repository setup, documentation, and Sigma fundamentals | In Progress |
-| Day 2 | BEC and phishing detection rules | Not Started |
+| Day 1 | Repository setup, documentation, and Sigma fundamentals | Completed |
+| Day 2 | BEC and phishing detection rules | Completed |
 | Day 3 | Microsoft 365 and OAuth abuse detection rules | Not Started |
 | Day 4 | LOLBins detection rules | Not Started |
 | Day 5 | LOLBins and persistence detection rules | Not Started |
@@ -27,7 +28,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 ## Day 1 - Repository Foundation
 
 **Date:** 23 July 2026
-**Status:** In Progress
+**Status:** Completed
 
 ### Completed
 
@@ -40,22 +41,48 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Configured `.gitignore`.
 - Added the MIT License.
 - Created the initial project README.
+- Reviewed the official Sigma rule structure and specification.
+- Documented the project rule structure and quality standards.
+- Reviewed all staged files for formatting issues.
+- Prepared the repository foundation for the initial Git commit.
 
-### Pending
+## Day 2 - BEC and Phishing Detections
 
-- Study the standard Sigma rule structure.
-- Document the Sigma fields required for this project.
-- Review all Day 1 files.
-- Create and push the initial Git commit.
+**Date:** 23 July 2026
+**Status:** Completed
+
+### Completed
+
+- Researched BEC-related mailbox forwarding behaviour.
+- Identified the required Microsoft 365 Exchange audit telemetry.
+- Installed Sigma CLI 3.1.0 in an isolated virtual environment.
+- Created and documented the M365 Inbox Forwarding with Message Hiding rule.
+- Mapped the first rule to MITRE ATT&CK T1114.003 and T1564.008.
+- Created and documented the M365 Mailbox SMTP Forwarding with Local Delivery rule.
+- Mapped the second rule to MITRE ATT&CK T1114.003.
+- Documented false positives, investigation guidance, tuning recommendations, and limitations for both rules.
+- Validated both rules individually and as a rule set.
+- Confirmed 0 errors, 0 condition errors, and 0 validation issues.
+- Captured validation evidence for both rules.
+- Updated the project README with rule progress and links.
 
 ## Rule Development Progress
 
 | Rule | Category | Status | MITRE ATT&CK |
 |---|---|---|---|
-| 01-15 | To be developed | Not Started | To be mapped |
+| M365 Inbox Forwarding with Message Hiding | BEC / Phishing | Experimental - Validated | T1114.003, T1564.008 |
+| M365 Mailbox SMTP Forwarding with Local Delivery | BEC / Phishing | Experimental - Validated | T1114.003 |
+| Rules 03-15 | To be developed | Not Started | To be mapped |
+
+## Validation Summary
+
+| Date | Scope | Tool | Result |
+|---|---|---|---|
+| 23 July 2026 | Two BEC and phishing rules | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 
 ## Version History
 
 | Version | Date | Description |
 |---|---|---|
-| Pre-release | 23 July 2026 | Repository foundation and initial documentation |
+| Pre-release - Day 1 | 23 July 2026 | Repository foundation and initial documentation |
+| Pre-release - Day 2 | 23 July 2026 | Two validated BEC and phishing detection rules |

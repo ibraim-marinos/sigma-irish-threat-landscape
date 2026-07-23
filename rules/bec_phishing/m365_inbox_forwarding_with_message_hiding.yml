@@ -1,0 +1,45 @@
+title: M365 Inbox Forwarding with Message Hiding
+id: 854effe8-4b90-4733-ab13-78dd0a1dc6c8
+status: experimental
+description: Identifies Microsoft 365 inbox rules that combine email forwarding or redirection with actions intended to hide the original messages.
+references:
+  - https://learn.microsoft.com/en-us/purview/audit-log-identify-mailbox-rules
+  - https://attack.mitre.org/techniques/T1114/003/
+  - https://attack.mitre.org/techniques/T1564/008/
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-23
+license: MIT
+tags:
+  - attack.collection
+  - attack.stealth
+  - attack.t1114.003
+  - attack.t1564.008
+logsource:
+  product: m365
+  service: exchange
+detection:
+  selection_operation:
+    Operation:
+      - New-InboxRule
+      - Set-InboxRule
+  selection_forwarding:
+    Parameters|contains:
+      - ForwardTo
+      - ForwardAsAttachmentTo
+      - RedirectTo
+  selection_hiding:
+    Parameters|contains:
+      - DeleteMessage
+      - MarkAsRead
+      - MoveToFolder
+  condition: selection_operation and selection_forwarding and selection_hiding
+fields:
+  - UserId
+  - ClientIP
+  - Operation
+  - Parameters
+  - ObjectId
+falsepositives:
+  - Legitimate user-created rules that combine forwarding with mailbox organisation actions.
+  - Approved administrator or helpdesk changes related to mailbox migration, delegation, or business workflows.
+level: high
