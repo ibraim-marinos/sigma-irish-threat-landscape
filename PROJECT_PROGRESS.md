@@ -5,10 +5,10 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 ## Project Summary
 
 - **Target:** 15 original Sigma detection rules
-- **Rules completed:** 7 of 15
+- **Rules completed:** 10 of 15
 - **Development period:** 10 days
 - **Current version:** Pre-release
-- **Current phase:** Day 4 LOLBins detections completed
+- **Current phase:** Day 5 LOLBins and persistence detections completed
 
 ## Development Roadmap
 
@@ -18,7 +18,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Day 2 | BEC and phishing detection rules | Completed |
 | Day 3 | Microsoft 365 and OAuth abuse detection rules | Completed |
 | Day 4 | LOLBins detection rules | Completed |
-| Day 5 | LOLBins and persistence detection rules | Not Started |
+| Day 5 | LOLBins and persistence detection rules | Completed |
 | Day 6 | Irish/European threats, reconnaissance, and lateral movement | Not Started |
 | Day 7 | Complete 15 rules and perform attack-chain coverage review | Not Started |
 | Day 8 | Complete professional documentation | Not Started |
@@ -106,6 +106,31 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Captured professional validation evidence for all three rules.
 - Updated the project README to show 7 of 15 completed rules.
 
+## Day 5 - LOLBins and Persistence Detections
+
+**Date:** 25 July 2026
+**Status:** Completed
+
+### Completed
+
+- Researched Certutil abuse for remote file transfer.
+- Created and documented the Certutil Remote File Download rule.
+- Mapped the eighth rule to MITRE ATT&CK T1105.
+- Researched Windows Registry Run and RunOnce persistence.
+- Identified Registry value-set telemetry, including Sysmon Event ID 13.
+- Created and documented the Registry Run Key Persistence from Suspicious Path rule.
+- Mapped the ninth rule to MITRE ATT&CK T1547.001.
+- Researched Windows scheduled-task persistence using `schtasks.exe`.
+- Created and documented the Scheduled Task Creation from User-Writable Path rule.
+- Mapped the tenth rule to MITRE ATT&CK T1053.005.
+- Documented detection logic, false positives, investigation guidance, tuning recommendations, severity rationale, and limitations for all three rules.
+- Validated each new rule individually.
+- Validated the complete ten-rule library.
+- Confirmed 0 errors, 0 condition errors, and 0 validation issues.
+- Captured professional validation evidence for all three rules.
+- Updated the project README to show 10 of 15 completed rules.
+- Added links to the persistence documentation in the README.
+
 ## Rule Development Progress
 
 | Rule | Category | Status | MITRE ATT&CK |
@@ -117,7 +142,10 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | MSHTA Remote URL Execution | LOLBins | Experimental - Validated | T1218.005 |
 | Regsvr32 Remote Scriptlet Execution | LOLBins | Experimental - Validated | T1218.010 |
 | Rundll32 Suspicious Script Execution | LOLBins | Experimental - Validated | T1218.011 |
-| Rules 08-15 | To be developed | Not Started | To be mapped |
+| Certutil Remote File Download | LOLBins | Experimental - Validated | T1105 |
+| Registry Run Key Persistence from Suspicious Path | Persistence | Experimental - Validated | T1547.001 |
+| Scheduled Task Creation from User-Writable Path | Persistence | Experimental - Validated | T1053.005 |
+| Rules 11-15 | To be developed | Not Started | To be mapped |
 
 ## Validation Summary
 
@@ -126,6 +154,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | 23 July 2026 | Two BEC and phishing rules | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 24 July 2026 | Complete four-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 24 July 2026 | Complete seven-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
+| 25 July 2026 | Complete ten-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 
 ## Version History
 
@@ -135,3 +164,4 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Pre-release - Day 2 | 23 July 2026 | Two validated BEC and phishing detection rules |
 | Pre-release - Day 3 | 24 July 2026 | Two validated OAuth abuse detection rules and four-rule library validation |
 | Pre-release - Day 4 | 24 July 2026 | Three validated LOLBins detection rules and seven-rule library validation |
+| Pre-release - Day 5 | 25 July 2026 | Three validated LOLBins and persistence rules and ten-rule library validation |

@@ -1,0 +1,42 @@
+title: Certutil Remote File Download
+id: 0e1b1f25-315a-46dd-90ba-8d05fcb9d5db
+status: experimental
+description: Identifies Certutil execution using an HTTP or HTTPS URL together with command-line options associated with remote file retrieval.
+references:
+  - https://learn.microsoft.com/en-us/windows/win32/seccrypto/tools-to-create-view-and-manage-certificates
+  - https://attack.mitre.org/techniques/T1105/
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-25
+license: MIT
+tags:
+  - attack.t1105
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_image:
+    - Image|endswith: '\certutil.exe'
+    - OriginalFileName: CertUtil.exe
+  selection_url:
+    CommandLine|contains:
+      - 'http://'
+      - 'https://'
+  selection_download:
+    CommandLine|contains:
+      - '-urlcache'
+      - '-split'
+      - '-f'
+  condition: selection_image and selection_url and selection_download
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - ParentCommandLine
+  - User
+  - Computer
+  - ProcessId
+  - ProcessGuid
+  - Hashes
+falsepositives:
+  - Approved certificate-management, deployment, or administrative activity that retrieves files from trusted remote locations.
+level: high
