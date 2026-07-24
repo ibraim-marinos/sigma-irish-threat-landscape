@@ -1,0 +1,41 @@
+title: M365 OAuth Consent with High-Risk Permissions
+id: 3f18e3e7-a392-48c9-87d5-4c5fcb7c2341
+status: experimental
+description: Identifies Microsoft Entra application consent events involving permissions that can provide access to email or persistent delegated access.
+references:
+  - https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/app-perms-audit-logs
+  - https://learn.microsoft.com/en-us/entra/architecture/security-operations-applications
+  - https://attack.mitre.org/techniques/T1671/
+  - https://attack.mitre.org/techniques/T1550/001/
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-24
+license: MIT
+tags:
+  - attack.persistence
+  - attack.t1671
+  - attack.t1550.001
+logsource:
+  product: azure
+  service: auditlogs
+detection:
+  selection_event:
+    Category: ApplicationManagement
+    ActivityDisplayName: Consent to application
+    Result: success
+  selection_permissions:
+    TargetResources|contains:
+      - Mail.Read
+      - Mail.ReadWrite
+      - Mail.Send
+      - offline_access
+  condition: selection_event and selection_permissions
+fields:
+  - ActivityDisplayName
+  - InitiatedBy
+  - TargetResources
+  - AdditionalDetails
+  - Result
+falsepositives:
+  - Approved business applications that legitimately require access to Microsoft 365 email.
+  - Expected user or administrator consent granted during application deployment.
+level: high

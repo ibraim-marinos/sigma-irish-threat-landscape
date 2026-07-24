@@ -1,0 +1,42 @@
+title: M365 Service Principal High-Risk Application Permissions
+id: 28a92e2c-5a2a-4bd5-bc41-b9a8a825e808
+status: experimental
+description: Identifies Microsoft Entra app-role assignments that grant high-risk application permissions to a service principal.
+references:
+  - https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/app-perms-audit-logs
+  - https://learn.microsoft.com/en-us/entra/architecture/security-operations-applications
+  - https://attack.mitre.org/techniques/T1671/
+  - https://attack.mitre.org/techniques/T1098/003/
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-24
+license: MIT
+tags:
+  - attack.persistence
+  - attack.t1671
+  - attack.t1098.003
+logsource:
+  product: azure
+  service: auditlogs
+detection:
+  selection_event:
+    Category: ApplicationManagement
+    ActivityDisplayName: Add app role assignment to service principal
+    Result: success
+  selection_permissions:
+    TargetResources|contains:
+      - Mail.Read
+      - Mail.ReadWrite
+      - Mail.Send
+      - Files.ReadWrite.All
+      - Directory.ReadWrite.All
+  condition: selection_event and selection_permissions
+fields:
+  - ActivityDisplayName
+  - InitiatedBy
+  - TargetResources
+  - AdditionalDetails
+  - Result
+falsepositives:
+  - Approved application deployments that require broad Microsoft Graph permissions.
+  - Legitimate security, backup, migration, compliance, or automation service principals.
+level: high

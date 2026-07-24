@@ -4,7 +4,7 @@ A portfolio-focused library of original Sigma detection rules addressing securit
 
 ## Project Status
 
-> Currently under active development. 2 of 15 planned Sigma detection rules have been completed and validated.
+> Currently under active development. 4 of 15 planned Sigma detection rules have been completed and validated.
 
 ## Overview
 
@@ -41,8 +41,10 @@ The library focuses on threats and techniques affecting Microsoft-centric enviro
 |---|---|---|---|---|---|
 | 1 | [M365 Inbox Forwarding with Message Hiding](rules/bec_phishing/m365_inbox_forwarding_with_message_hiding.yml) | BEC / Phishing | T1114.003, T1564.008 | Experimental | Passed |
 | 2 | [M365 Mailbox SMTP Forwarding with Local Delivery](rules/bec_phishing/m365_mailbox_smtp_forwarding_with_local_delivery.yml) | BEC / Phishing | T1114.003 | Experimental | Passed |
+| 3 | [M365 OAuth Consent with High-Risk Permissions](rules/oauth_abuse/m365_oauth_consent_high_risk_permissions.yml) | OAuth Abuse | T1671, T1550.001 | Experimental | Passed |
+| 4 | [M365 Service Principal High-Risk Application Permissions](rules/oauth_abuse/m365_service_principal_high_risk_app_permissions.yml) | OAuth Abuse | T1671, T1098.003 | Experimental | Passed |
 
-Detailed detection logic, false-positive analysis, investigation guidance, tuning recommendations, and validation results are available in the [BEC and phishing documentation](docs/rules/bec_phishing/).
+Detailed detection logic, false-positive analysis, investigation guidance, tuning recommendations, and validation results are available in the [BEC and phishing documentation](docs/rules/bec_phishing/) and [OAuth abuse documentation](docs/rules/oauth_abuse/).
 
 ## Repository Structure
 
