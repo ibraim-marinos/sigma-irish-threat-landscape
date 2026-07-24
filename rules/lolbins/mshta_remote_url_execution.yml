@@ -1,0 +1,38 @@
+title: MSHTA Remote URL Execution
+id: 58e16b23-865d-4901-8682-073e783f252e
+status: experimental
+description: Identifies the Windows MSHTA binary executing content referenced through an HTTP or HTTPS URL.
+references:
+  - https://attack.mitre.org/techniques/T1218/005/
+  - https://attack.mitre.org/detectionstrategies/DET0506/
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-24
+license: MIT
+tags:
+  - attack.t1218.005
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_image:
+    - Image|endswith: '\mshta.exe'
+    - OriginalFileName: MSHTA.EXE
+  selection_url:
+    CommandLine|contains:
+      - 'http://'
+      - 'https://'
+  condition: selection_image and selection_url
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - ParentCommandLine
+  - User
+  - Computer
+  - ProcessId
+  - ProcessGuid
+  - Hashes
+falsepositives:
+  - Legitimate internal applications or administrative tools that use MSHTA to load approved remote content.
+level: high

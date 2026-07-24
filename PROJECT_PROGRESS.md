@@ -5,10 +5,10 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 ## Project Summary
 
 - **Target:** 15 original Sigma detection rules
-- **Rules completed:** 4 of 15
+- **Rules completed:** 7 of 15
 - **Development period:** 10 days
 - **Current version:** Pre-release
-- **Current phase:** Day 3 Microsoft 365 and OAuth abuse detections completed
+- **Current phase:** Day 4 LOLBins detections completed
 
 ## Development Roadmap
 
@@ -17,7 +17,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Day 1 | Repository setup, documentation, and Sigma fundamentals | Completed |
 | Day 2 | BEC and phishing detection rules | Completed |
 | Day 3 | Microsoft 365 and OAuth abuse detection rules | Completed |
-| Day 4 | LOLBins detection rules | Not Started |
+| Day 4 | LOLBins detection rules | Completed |
 | Day 5 | LOLBins and persistence detection rules | Not Started |
 | Day 6 | Irish/European threats, reconnaissance, and lateral movement | Not Started |
 | Day 7 | Complete 15 rules and perform attack-chain coverage review | Not Started |
@@ -85,6 +85,27 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Captured professional validation evidence for both rules.
 - Updated the project README to show 4 of 15 completed rules.
 
+## Day 4 - LOLBins Detections
+
+**Date:** 24 July 2026
+**Status:** Completed
+
+### Completed
+
+- Researched abuse of Microsoft-signed Windows binaries.
+- Identified Windows process-creation telemetry as the required log source.
+- Created and documented the MSHTA Remote URL Execution rule.
+- Mapped the fifth rule to MITRE ATT&CK T1218.005.
+- Created and documented the Regsvr32 Remote Scriptlet Execution rule.
+- Mapped the sixth rule to MITRE ATT&CK T1218.010.
+- Created and documented the Rundll32 Suspicious Script Execution rule.
+- Mapped the seventh rule to MITRE ATT&CK T1218.011.
+- Documented detection logic, false positives, investigation guidance, tuning recommendations, and limitations for all three rules.
+- Validated each LOLBin rule individually and validated the complete seven-rule library.
+- Confirmed 0 errors, 0 condition errors, and 0 validation issues.
+- Captured professional validation evidence for all three rules.
+- Updated the project README to show 7 of 15 completed rules.
+
 ## Rule Development Progress
 
 | Rule | Category | Status | MITRE ATT&CK |
@@ -93,7 +114,10 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | M365 Mailbox SMTP Forwarding with Local Delivery | BEC / Phishing | Experimental - Validated | T1114.003 |
 | M365 OAuth Consent with High-Risk Permissions | OAuth Abuse | Experimental - Validated | T1671, T1550.001 |
 | M365 Service Principal High-Risk Application Permissions | OAuth Abuse | Experimental - Validated | T1671, T1098.003 |
-| Rules 05-15 | To be developed | Not Started | To be mapped |
+| MSHTA Remote URL Execution | LOLBins | Experimental - Validated | T1218.005 |
+| Regsvr32 Remote Scriptlet Execution | LOLBins | Experimental - Validated | T1218.010 |
+| Rundll32 Suspicious Script Execution | LOLBins | Experimental - Validated | T1218.011 |
+| Rules 08-15 | To be developed | Not Started | To be mapped |
 
 ## Validation Summary
 
@@ -101,6 +125,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 |---|---|---|---|
 | 23 July 2026 | Two BEC and phishing rules | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 24 July 2026 | Complete four-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
+| 24 July 2026 | Complete seven-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 
 ## Version History
 
@@ -109,3 +134,4 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Pre-release - Day 1 | 23 July 2026 | Repository foundation and initial documentation |
 | Pre-release - Day 2 | 23 July 2026 | Two validated BEC and phishing detection rules |
 | Pre-release - Day 3 | 24 July 2026 | Two validated OAuth abuse detection rules and four-rule library validation |
+| Pre-release - Day 4 | 24 July 2026 | Three validated LOLBins detection rules and seven-rule library validation |

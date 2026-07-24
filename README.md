@@ -4,7 +4,7 @@ A portfolio-focused library of original Sigma detection rules addressing securit
 
 ## Project Status
 
-> Currently under active development. 4 of 15 planned Sigma detection rules have been completed and validated.
+> Currently under active development. 7 of 15 planned Sigma detection rules have been completed and validated.
 
 ## Overview
 
@@ -43,8 +43,11 @@ The library focuses on threats and techniques affecting Microsoft-centric enviro
 | 2 | [M365 Mailbox SMTP Forwarding with Local Delivery](rules/bec_phishing/m365_mailbox_smtp_forwarding_with_local_delivery.yml) | BEC / Phishing | T1114.003 | Experimental | Passed |
 | 3 | [M365 OAuth Consent with High-Risk Permissions](rules/oauth_abuse/m365_oauth_consent_high_risk_permissions.yml) | OAuth Abuse | T1671, T1550.001 | Experimental | Passed |
 | 4 | [M365 Service Principal High-Risk Application Permissions](rules/oauth_abuse/m365_service_principal_high_risk_app_permissions.yml) | OAuth Abuse | T1671, T1098.003 | Experimental | Passed |
+| 5 | [MSHTA Remote URL Execution](rules/lolbins/mshta_remote_url_execution.yml) | LOLBins | T1218.005 | Experimental | Passed |
+| 6 | [Regsvr32 Remote Scriptlet Execution](rules/lolbins/regsvr32_remote_scriptlet_execution.yml) | LOLBins | T1218.010 | Experimental | Passed |
+| 7 | [Rundll32 Suspicious Script Execution](rules/lolbins/rundll32_suspicious_script_execution.yml) | LOLBins | T1218.011 | Experimental | Passed |
 
-Detailed detection logic, false-positive analysis, investigation guidance, tuning recommendations, and validation results are available in the [BEC and phishing documentation](docs/rules/bec_phishing/) and [OAuth abuse documentation](docs/rules/oauth_abuse/).
+Detailed detection logic, false-positive analysis, investigation guidance, tuning recommendations, and validation results are available in the [BEC and phishing documentation](docs/rules/bec_phishing/), [OAuth abuse documentation](docs/rules/oauth_abuse/), and [LOLBins documentation](docs/rules/lolbins/).
 
 ## Repository Structure
 

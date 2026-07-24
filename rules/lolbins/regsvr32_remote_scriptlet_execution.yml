@@ -1,0 +1,42 @@
+title: Regsvr32 Remote Scriptlet Execution
+id: 0fb4d7d0-79d6-4269-9608-f2cb462f37e7
+status: experimental
+description: Identifies Regsvr32 execution using a remote URL and scrobj.dll to load a COM scriptlet.
+references:
+  - https://attack.mitre.org/techniques/T1218/010/
+  - https://attack.mitre.org/detectionstrategies/DET0282/
+  - https://learn.microsoft.com/en-gb/windows-server/administration/windows-commands/regsvr32
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-24
+license: MIT
+tags:
+  - attack.t1218.010
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_image:
+    - Image|endswith: '\regsvr32.exe'
+    - OriginalFileName: REGSVR32.EXE
+  selection_install:
+    CommandLine|contains: '/i:'
+  selection_url:
+    CommandLine|contains:
+      - 'http://'
+      - 'https://'
+  selection_scriptlet:
+    CommandLine|contains: 'scrobj.dll'
+  condition: selection_image and selection_install and selection_url and selection_scriptlet
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - ParentCommandLine
+  - User
+  - Computer
+  - ProcessId
+  - ProcessGuid
+  - Hashes
+falsepositives:
+  - Approved legacy applications or administrative automation that intentionally loads a remote COM scriptlet.
+level: high
