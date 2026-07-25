@@ -1,0 +1,38 @@
+title: Rundll32 Comsvcs LSASS Memory Dump
+id: 467e3192-5c72-4bbc-a20c-350439ab6135
+status: experimental
+description: Identifies Rundll32 execution using comsvcs.dll and the MiniDump function, which may indicate an attempt to dump LSASS process memory and obtain credentials.
+references:
+  - https://attack.mitre.org/techniques/T1003/001/
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+  - https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-26
+license: MIT
+tags:
+  - attack.t1003.001
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_image:
+    - Image|endswith: '\rundll32.exe'
+    - OriginalFileName: RUNDLL32.EXE
+  selection_library:
+    CommandLine|contains: 'comsvcs.dll'
+  selection_minidump:
+    CommandLine|contains: 'MiniDump'
+  condition: selection_image and selection_library and selection_minidump
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - ParentCommandLine
+  - User
+  - Computer
+  - ProcessId
+  - ProcessGuid
+  - Hashes
+falsepositives:
+  - Approved digital-forensics, incident-response, penetration-testing, or security-product activity that intentionally creates a process memory dump.
+level: high

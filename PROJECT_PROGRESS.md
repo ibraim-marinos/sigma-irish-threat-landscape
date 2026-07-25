@@ -5,10 +5,10 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 ## Project Summary
 
 - **Target:** 15 original Sigma detection rules
-- **Rules completed:** 13 of 15
+- **Rules completed:** 15 of 15
 - **Development period:** 10 days
 - **Current version:** Pre-release
-- **Current phase:** Day 6 Irish/European threat, reconnaissance, and lateral movement detections completed
+- **Current phase:** Day 7 rule development and attack-chain coverage review completed
 
 ## Development Roadmap
 
@@ -20,7 +20,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Day 4 | LOLBins detection rules | Completed |
 | Day 5 | LOLBins and persistence detection rules | Completed |
 | Day 6 | Irish/European threats, reconnaissance, and lateral movement | Completed |
-| Day 7 | Complete 15 rules and perform attack-chain coverage review | Not Started |
+| Day 7 | Complete 15 rules and perform attack-chain coverage review | Completed |
 | Day 8 | Complete professional documentation | Not Started |
 | Day 9 | Validate rules, capture screenshots, and polish repository | Not Started |
 | Day 10 | Final review, v1.0 release, LinkedIn, CV, and interview preparation | Not Started |
@@ -156,24 +156,53 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Updated the project README to show 13 of 15 completed rules.
 - Added links to the malware, reconnaissance, and lateral-movement documentation.
 
+## Day 7 - Library Completion and Attack-Chain Review
+
+**Date:** 26 July 2026
+**Status:** Completed
+
+### Completed
+
+- Identified credential access as a remaining attack-chain coverage gap.
+- Created and documented the Rundll32 Comsvcs LSASS Memory Dump rule.
+- Mapped the fourteenth rule to MITRE ATT&CK T1003.001.
+- Identified remote payload delivery through PowerShell as a remaining coverage opportunity.
+- Created and documented the PowerShell Remote Payload Download rule.
+- Mapped the fifteenth rule to MITRE ATT&CK T1059.001 and T1105.
+- Documented detection logic, false positives, investigation guidance, tuning recommendations, severity rationale, validation results, and limitations for both rules.
+- Validated both new rules individually with Sigma CLI 3.1.0.
+- Captured professional validation evidence for both rules.
+- Confirmed that the repository contains exactly 15 Sigma YAML rules.
+- Validated the complete fifteen-rule library.
+- Confirmed 0 errors, 0 condition errors, and 0 validation issues.
+- Reviewed titles, UUIDs, and severity levels across all 15 rules.
+- Confirmed that all 15 UUIDs are unique.
+- Reviewed MITRE ATT&CK mappings across the complete rule set.
+- Created the end-to-end attack-chain coverage review.
+- Documented correlation opportunities, coverage strengths, known gaps, and deployment considerations.
+- Updated the project README to show 15 of 15 validated rules.
+- Added the credential-access category and documentation links.
+- Added a link to the attack-chain coverage review.
+
 ## Rule Development Progress
 
-| Rule | Category | Status | MITRE ATT&CK |
-|---|---|---|---|
-| M365 Inbox Forwarding with Message Hiding | BEC / Phishing | Experimental - Validated | T1114.003, T1564.008 |
-| M365 Mailbox SMTP Forwarding with Local Delivery | BEC / Phishing | Experimental - Validated | T1114.003 |
-| M365 OAuth Consent with High-Risk Permissions | OAuth Abuse | Experimental - Validated | T1671, T1550.001 |
-| M365 Service Principal High-Risk Application Permissions | OAuth Abuse | Experimental - Validated | T1671, T1098.003 |
-| MSHTA Remote URL Execution | LOLBins | Experimental - Validated | T1218.005 |
-| Regsvr32 Remote Scriptlet Execution | LOLBins | Experimental - Validated | T1218.010 |
-| Rundll32 Suspicious Script Execution | LOLBins | Experimental - Validated | T1218.011 |
-| Certutil Remote File Download | LOLBins | Experimental - Validated | T1105 |
-| Registry Run Key Persistence from Suspicious Path | Persistence | Experimental - Validated | T1547.001 |
-| Scheduled Task Creation from User-Writable Path | Persistence | Experimental - Validated | T1053.005 |
-| Office Application Spawning PowerShell | Malware / Phishing | Experimental - Validated | T1204.002, T1059.001 |
-| NLTest Domain Trust Discovery | Reconnaissance | Experimental - Validated | T1482 |
-| SC.exe Remote Service Creation | Lateral Movement | Experimental - Validated | T1569.002 |
-| Rules 14-15 | To be developed | Not Started | To be mapped |
+| # | Rule | Category | Status | MITRE ATT&CK |
+|---|---|---|---|---|
+| 1 | M365 Inbox Forwarding with Message Hiding | BEC / Phishing | Experimental - Validated | T1114.003, T1564.008 |
+| 2 | M365 Mailbox SMTP Forwarding with Local Delivery | BEC / Phishing | Experimental - Validated | T1114.003 |
+| 3 | M365 OAuth Consent with High-Risk Permissions | OAuth Abuse | Experimental - Validated | T1671, T1550.001 |
+| 4 | M365 Service Principal High-Risk Application Permissions | OAuth Abuse | Experimental - Validated | T1671, T1098.003 |
+| 5 | MSHTA Remote URL Execution | LOLBins | Experimental - Validated | T1218.005 |
+| 6 | Regsvr32 Remote Scriptlet Execution | LOLBins | Experimental - Validated | T1218.010 |
+| 7 | Rundll32 Suspicious Script Execution | LOLBins | Experimental - Validated | T1218.011 |
+| 8 | Certutil Remote File Download | LOLBins | Experimental - Validated | T1105 |
+| 9 | Registry Run Key Persistence from Suspicious Path | Persistence | Experimental - Validated | T1547.001 |
+| 10 | Scheduled Task Creation from User-Writable Path | Persistence | Experimental - Validated | T1053.005 |
+| 11 | Office Application Spawning PowerShell | Malware / Phishing | Experimental - Validated | T1204.002, T1059.001 |
+| 12 | NLTest Domain Trust Discovery | Reconnaissance | Experimental - Validated | T1482 |
+| 13 | SC.exe Remote Service Creation | Lateral Movement | Experimental - Validated | T1569.002 |
+| 14 | Rundll32 Comsvcs LSASS Memory Dump | Credential Access | Experimental - Validated | T1003.001 |
+| 15 | PowerShell Remote Payload Download | Malware Delivery | Experimental - Validated | T1059.001, T1105 |
 
 ## Validation Summary
 
@@ -184,6 +213,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | 24 July 2026 | Complete seven-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 25 July 2026 | Complete ten-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 26 July 2026 | Complete thirteen-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
+| 26 July 2026 | Complete fifteen-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 
 ## Version History
 
@@ -195,3 +225,4 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Pre-release - Day 4 | 24 July 2026 | Three validated LOLBins detection rules and seven-rule library validation |
 | Pre-release - Day 5 | 25 July 2026 | Three validated LOLBins and persistence rules and ten-rule library validation |
 | Pre-release - Day 6 | 26 July 2026 | Three validated European threat, reconnaissance, and lateral-movement rules and thirteen-rule library validation |
+| Pre-release - Day 7 | 26 July 2026 | Completed fifteen-rule library and end-to-end attack-chain coverage review |
