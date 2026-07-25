@@ -1,0 +1,41 @@
+title: NLTest Domain Trust Discovery
+id: 45a58203-a8c0-43f6-bba6-34bda7a709c7
+status: experimental
+description: Identifies NLTest execution with command-line parameters used to enumerate Active Directory domain trust relationships.
+references:
+  - https://attack.mitre.org/techniques/T1482/
+  - https://attack.mitre.org/detectionstrategies/DET0007/
+  - https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731935%28v%3Dws.11%29
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+author: Ibraim Arturo Marinos Lian
+date: 2026-07-26
+license: MIT
+tags:
+  - attack.discovery
+  - attack.t1482
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_image:
+    - Image|endswith: '\nltest.exe'
+    - OriginalFileName: nltest.exe
+  selection_trust:
+    CommandLine|contains:
+      - '/domain_trusts'
+      - '/all_trusts'
+      - '/trusted_domains'
+  condition: selection_image and selection_trust
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - ParentCommandLine
+  - User
+  - Computer
+  - ProcessId
+  - ProcessGuid
+  - Hashes
+falsepositives:
+  - Legitimate Active Directory administration, trust troubleshooting, migration, monitoring, or security assessment activity.
+level: medium

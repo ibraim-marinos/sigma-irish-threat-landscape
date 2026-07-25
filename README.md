@@ -4,13 +4,15 @@ A portfolio-focused library of original Sigma detection rules addressing securit
 
 ## Project Status
 
-> Currently under active development. 10 of 15 planned Sigma detection rules have been completed and validated.
+> Currently under active development. 13 of 15 planned Sigma detection rules have been completed and validated.
 
 ## Overview
 
 This project demonstrates practical detection engineering skills through the development, documentation, and validation of Sigma rules for common enterprise attack scenarios.
 
-The library focuses on threats and techniques affecting Microsoft-centric environments, including business email compromise, Microsoft 365 abuse, malicious OAuth activity, living-off-the-land binaries, persistence, reconnaissance, lateral movement, and malware behaviour.
+The library focuses on threats and techniques affecting Microsoft-centric environments, including business email compromise, Microsoft 365 abuse, malicious OAuth activity, living-off-the-land binaries, malware execution, persistence, reconnaissance, and lateral movement.
+
+The project uses threat-informed detection hypotheses, Windows and Microsoft 365 telemetry, MITRE ATT&CK mapping, documented investigation guidance, and repeatable Sigma CLI validation.
 
 ## Project Objectives
 
@@ -21,6 +23,7 @@ The library focuses on threats and techniques affecting Microsoft-centric enviro
 - Validate rules using Sigma tooling.
 - Demonstrate coverage across multiple stages of an attack chain.
 - Provide platform-independent detections that can be converted for different SIEM platforms.
+- Address attack behaviours relevant to Irish and European organisations.
 
 ## Planned Detection Categories
 
@@ -31,9 +34,9 @@ The library focuses on threats and techniques affecting Microsoft-centric enviro
 | OAuth abuse | Suspicious application consent and permission activity |
 | LOLBins | Abuse of trusted Windows binaries for malicious execution |
 | Persistence | Techniques used to maintain access to compromised systems |
-| Reconnaissance | Host, account, and network discovery activity |
+| Reconnaissance | Host, account, domain, and network discovery activity |
 | Lateral movement | Techniques used to move between systems and accounts |
-| Malware | Behaviour associated with threats such as Emotet and Qakbot |
+| Malware | Behaviour associated with phishing-delivered malware and malicious execution chains |
 
 ## Detection Rules
 
@@ -49,16 +52,65 @@ The library focuses on threats and techniques affecting Microsoft-centric enviro
 | 8 | [Certutil Remote File Download](rules/lolbins/certutil_remote_file_download.yml) | LOLBins | T1105 | Experimental | Passed |
 | 9 | [Registry Run Key Persistence from Suspicious Path](rules/persistence/registry_run_key_suspicious_path.yml) | Persistence | T1547.001 | Experimental | Passed |
 | 10 | [Scheduled Task Creation from User-Writable Path](rules/persistence/schtasks_suspicious_task_from_user_writable_path.yml) | Persistence | T1053.005 | Experimental | Passed |
+| 11 | [Office Application Spawning PowerShell](rules/malware/office_application_spawns_powershell.yml) | Malware / Phishing | T1204.002, T1059.001 | Experimental | Passed |
+| 12 | [NLTest Domain Trust Discovery](rules/reconnaissance/nltest_domain_trust_discovery.yml) | Reconnaissance | T1482 | Experimental | Passed |
+| 13 | [SC.exe Remote Service Creation](rules/lateral_movement/sc_remote_service_creation.yml) | Lateral Movement | T1569.002 | Experimental | Passed |
 
-Detailed detection logic, false-positive analysis, investigation guidance, tuning recommendations, and validation results are available in the [BEC and phishing documentation](docs/rules/bec_phishing/), [OAuth abuse documentation](docs/rules/oauth_abuse/), [LOLBins documentation](docs/rules/lolbins/), and [persistence documentation](docs/rules/persistence/).
+Detailed detection logic, false-positive analysis, investigation guidance, tuning recommendations, validation results, and limitations are available in:
+
+- [BEC and phishing documentation](docs/rules/bec_phishing/)
+- [OAuth abuse documentation](docs/rules/oauth_abuse/)
+- [LOLBins documentation](docs/rules/lolbins/)
+- [Persistence documentation](docs/rules/persistence/)
+- [Malware documentation](docs/rules/malware/)
+- [Reconnaissance documentation](docs/rules/reconnaissance/)
+- [Lateral movement documentation](docs/rules/lateral_movement/)
+
+## Current Coverage
+
+The completed rules currently provide behavioural coverage across several attack stages:
+
+```text
+Phishing and account compromise
+        ↓
+Malicious document and PowerShell execution
+        ↓
+LOLBins and remote payload retrieval
+        ↓
+Persistence through Run keys and scheduled tasks
+        ↓
+Active Directory reconnaissance
+        ↓
+Remote service execution and lateral movement
+        ↓
+Email collection and continued Microsoft 365 access
+```
+
+A complete end-to-end MITRE ATT&CK coverage review will be performed after all 15 rules have been completed.
 
 ## Repository Structure
 
 ```text
 sigma-irish-threat-landscape/
 ├── rules/
+│   ├── bec_phishing/
+│   ├── lateral_movement/
+│   ├── lolbins/
+│   ├── m365_abuse/
+│   ├── malware/
+│   ├── oauth_abuse/
+│   ├── persistence/
+│   └── reconnaissance/
 ├── docs/
+│   ├── rules/
+│   └── sigma_rule_structure.md
 ├── screenshots/
+│   ├── day1/
+│   ├── day2/
+│   ├── day3/
+│   ├── day4/
+│   ├── day5/
+│   └── day6/
 ├── tests/
 ├── README.md
 ├── PROJECT_PROGRESS.md
@@ -66,20 +118,41 @@ sigma-irish-threat-landscape/
 └── .gitignore
 ```
 
+## Validation
+
+All completed rules are validated individually and together using Sigma CLI 3.1.0.
+
+Current complete-library validation result:
+
+```text
+Found 0 errors, 0 condition errors and 0 issues.
+No rule errors found.
+No condition errors found.
+No validation issues found.
+```
+
+Validation confirms Sigma syntax, condition structure, and supported quality checks. Production deployments still require environment-specific testing and tuning.
+
 ## Skills Demonstrated
 
 - Detection engineering
 - Sigma rule development
 - Security log analysis
+- Windows process analysis
+- Microsoft 365 and Microsoft Entra monitoring
+- Active Directory reconnaissance detection
+- Lateral movement detection
 - MITRE ATT&CK mapping
 - Threat-informed detection
+- False-positive analysis
+- Investigation planning
 - Rule testing and validation
 - Technical documentation
 - Git and GitHub version control
 
 ## Disclaimer
 
-These rules are developed for educational, portfolio, and defensive security purposes. They should be tested and tuned for the specific log sources and environment before production deployment.
+These rules are developed for educational, portfolio, and defensive security purposes. They should be tested and tuned for the specific log sources, field mappings, SIEM platform, and operational environment before production deployment.
 
 ## Author
 

@@ -5,10 +5,10 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 ## Project Summary
 
 - **Target:** 15 original Sigma detection rules
-- **Rules completed:** 10 of 15
+- **Rules completed:** 13 of 15
 - **Development period:** 10 days
 - **Current version:** Pre-release
-- **Current phase:** Day 5 LOLBins and persistence detections completed
+- **Current phase:** Day 6 Irish/European threat, reconnaissance, and lateral movement detections completed
 
 ## Development Roadmap
 
@@ -19,7 +19,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Day 3 | Microsoft 365 and OAuth abuse detection rules | Completed |
 | Day 4 | LOLBins detection rules | Completed |
 | Day 5 | LOLBins and persistence detection rules | Completed |
-| Day 6 | Irish/European threats, reconnaissance, and lateral movement | Not Started |
+| Day 6 | Irish/European threats, reconnaissance, and lateral movement | Completed |
 | Day 7 | Complete 15 rules and perform attack-chain coverage review | Not Started |
 | Day 8 | Complete professional documentation | Not Started |
 | Day 9 | Validate rules, capture screenshots, and polish repository | Not Started |
@@ -131,6 +131,31 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Updated the project README to show 10 of 15 completed rules.
 - Added links to the persistence documentation in the README.
 
+## Day 6 - Irish and European Threat Detections
+
+**Date:** 26 July 2026
+**Status:** Completed
+
+### Completed
+
+- Researched phishing and malware execution patterns relevant to Irish and European organisations.
+- Reviewed ENISA threat-landscape information supporting the importance of phishing-led initial access.
+- Created and documented the Office Application Spawning PowerShell rule.
+- Mapped the eleventh rule to MITRE ATT&CK T1204.002 and T1059.001.
+- Researched Active Directory domain-trust discovery using `nltest.exe`.
+- Created and documented the NLTest Domain Trust Discovery rule.
+- Mapped the twelfth rule to MITRE ATT&CK T1482.
+- Researched remote Windows service creation using `sc.exe`.
+- Created and documented the SC.exe Remote Service Creation rule.
+- Mapped the thirteenth rule to MITRE ATT&CK T1569.002.
+- Documented detection logic, false positives, investigation guidance, tuning recommendations, severity rationale, and limitations for all three rules.
+- Validated each new rule individually.
+- Validated the complete thirteen-rule library.
+- Confirmed 0 errors, 0 condition errors, and 0 validation issues.
+- Captured professional validation evidence for all three rules.
+- Updated the project README to show 13 of 15 completed rules.
+- Added links to the malware, reconnaissance, and lateral-movement documentation.
+
 ## Rule Development Progress
 
 | Rule | Category | Status | MITRE ATT&CK |
@@ -145,7 +170,10 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Certutil Remote File Download | LOLBins | Experimental - Validated | T1105 |
 | Registry Run Key Persistence from Suspicious Path | Persistence | Experimental - Validated | T1547.001 |
 | Scheduled Task Creation from User-Writable Path | Persistence | Experimental - Validated | T1053.005 |
-| Rules 11-15 | To be developed | Not Started | To be mapped |
+| Office Application Spawning PowerShell | Malware / Phishing | Experimental - Validated | T1204.002, T1059.001 |
+| NLTest Domain Trust Discovery | Reconnaissance | Experimental - Validated | T1482 |
+| SC.exe Remote Service Creation | Lateral Movement | Experimental - Validated | T1569.002 |
+| Rules 14-15 | To be developed | Not Started | To be mapped |
 
 ## Validation Summary
 
@@ -155,6 +183,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | 24 July 2026 | Complete four-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 24 July 2026 | Complete seven-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 25 July 2026 | Complete ten-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
+| 26 July 2026 | Complete thirteen-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 
 ## Version History
 
@@ -165,3 +194,4 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Pre-release - Day 3 | 24 July 2026 | Two validated OAuth abuse detection rules and four-rule library validation |
 | Pre-release - Day 4 | 24 July 2026 | Three validated LOLBins detection rules and seven-rule library validation |
 | Pre-release - Day 5 | 25 July 2026 | Three validated LOLBins and persistence rules and ten-rule library validation |
+| Pre-release - Day 6 | 26 July 2026 | Three validated European threat, reconnaissance, and lateral-movement rules and thirteen-rule library validation |
