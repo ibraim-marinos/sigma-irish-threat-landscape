@@ -8,7 +8,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - **Rules completed:** 15 of 15
 - **Development period:** 10 days
 - **Current version:** Pre-release
-- **Current phase:** Day 7 rule development and attack-chain coverage review completed
+- **Current phase:** Day 8 professional documentation completed
 
 ## Development Roadmap
 
@@ -21,7 +21,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Day 5 | LOLBins and persistence detection rules | Completed |
 | Day 6 | Irish/European threats, reconnaissance, and lateral movement | Completed |
 | Day 7 | Complete 15 rules and perform attack-chain coverage review | Completed |
-| Day 8 | Complete professional documentation | Not Started |
+| Day 8 | Complete professional documentation | Completed |
 | Day 9 | Validate rules, capture screenshots, and polish repository | Not Started |
 | Day 10 | Final review, v1.0 release, LinkedIn, CV, and interview preparation | Not Started |
 
@@ -184,6 +184,30 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Added the credential-access category and documentation links.
 - Added a link to the attack-chain coverage review.
 
+## Day 8 - Professional Documentation
+
+**Date:** 26 July 2026
+**Status:** Completed
+
+### Completed
+
+- Reviewed the existing documentation structure across all detection categories.
+- Created the Irish and European Threat Landscape document.
+- Documented the project scope, methodology, and Irish organisational context.
+- Connected BEC, Microsoft 365 abuse, OAuth abuse, phishing-delivered malware, LOLBins, persistence, credential access, reconnaissance, and lateral movement to relevant detection scenarios.
+- Documented an end-to-end detection narrative for Irish and European organisations.
+- Added operational considerations, detection-engineering principles, known limitations, and authoritative references.
+- Created the Sigma Usage and Validation Guide.
+- Documented the Windows PowerShell and Python virtual-environment setup.
+- Documented Sigma CLI installation and version verification.
+- Added instructions for validating individual rules, rule categories, and the complete library.
+- Added commands for reviewing rule metadata, duplicate UUIDs, MITRE ATT&CK tags, and file formatting.
+- Documented Sigma backend plugins, conversion targets, and processing pipelines.
+- Clarified what Sigma CLI validation confirms and what still requires environment-specific production testing.
+- Added troubleshooting guidance and a repeatable validation workflow.
+- Updated the project README with direct links to the threat-landscape, Sigma-usage, attack-chain, and rule-structure documentation.
+- Confirmed that all new and modified Markdown files pass Git formatting checks.
+
 ## Rule Development Progress
 
 | # | Rule | Category | Status | MITRE ATT&CK |
@@ -226,3 +250,4 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Pre-release - Day 5 | 25 July 2026 | Three validated LOLBins and persistence rules and ten-rule library validation |
 | Pre-release - Day 6 | 26 July 2026 | Three validated European threat, reconnaissance, and lateral-movement rules and thirteen-rule library validation |
 | Pre-release - Day 7 | 26 July 2026 | Completed fifteen-rule library and end-to-end attack-chain coverage review |
+| Pre-release - Day 8 | 26 July 2026 | Added Irish and European threat-landscape and Sigma usage documentation |

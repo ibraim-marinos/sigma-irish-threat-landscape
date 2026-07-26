@@ -59,9 +59,16 @@ The project uses threat-informed detection hypotheses, Windows and Microsoft 365
 | 14 | [Rundll32 Comsvcs LSASS Memory Dump](rules/credential_access/rundll32_comsvcs_lsass_memory_dump.yml) | Credential Access | T1003.001 | Experimental | Passed |
 | 15 | [PowerShell Remote Payload Download](rules/malware/powershell_remote_payload_download.yml) | Malware Delivery | T1059.001, T1105 | Experimental | Passed |
 
-## Rule Documentation
+## Project Documentation
 
-Detailed detection logic, false-positive analysis, investigation guidance, tuning recommendations, validation results, and limitations are available in:
+Start with these project-level guides:
+
+- [Irish and European Threat Landscape](docs/threat_landscape_ireland.md)
+- [Sigma Usage and Validation Guide](docs/sigma_usage.md)
+- [End-to-End Attack-Chain Coverage](docs/attack_chain_coverage.md)
+- [Sigma Rule Structure Guide](docs/sigma_rule_structure.md)
+
+Detailed rule logic, false-positive analysis, investigation guidance, tuning recommendations, validation results, and limitations are available in:
 
 - [BEC and phishing documentation](docs/rules/bec_phishing/)
 - [OAuth abuse documentation](docs/rules/oauth_abuse/)
