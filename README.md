@@ -1,10 +1,14 @@
 # Sigma Rule Library - Irish Threat Landscape
 
+[![Validate Sigma Library](https://github.com/ibraim-marinos/sigma-irish-threat-landscape/actions/workflows/validate.yml/badge.svg)](https://github.com/ibraim-marinos/sigma-irish-threat-landscape/actions/workflows/validate.yml)
+[![Sigma Rules](https://img.shields.io/badge/Sigma%20Rules-15-blue)](rules/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 A portfolio-focused library of original Sigma detection rules addressing security threats relevant to Irish and European organisations.
 
 ## Project Status
 
-> All 15 planned Sigma detection rules have been completed and validated. Documentation review, testing, and v1.0 release preparation remain in progress.
+> All 15 planned Sigma detection rules have been completed, documented, and validated. Final review and v1.0 release preparation remain in progress.
 
 ## Overview
 
@@ -102,6 +106,9 @@ See the complete [end-to-end attack-chain coverage review](docs/attack_chain_cov
 
 ```text
 sigma-irish-threat-landscape/
+|-- .github/
+|   `-- workflows/
+|       `-- validate.yml
 |-- rules/
 |   |-- bec_phishing/
 |   |-- credential_access/
@@ -115,7 +122,9 @@ sigma-irish-threat-landscape/
 |-- docs/
 |   |-- rules/
 |   |-- attack_chain_coverage.md
-|   `-- sigma_rule_structure.md
+|   |-- sigma_rule_structure.md
+|   |-- sigma_usage.md
+|   `-- threat_landscape_ireland.md
 |-- screenshots/
 |   |-- day1/
 |   |-- day2/
@@ -123,25 +132,28 @@ sigma-irish-threat-landscape/
 |   |-- day4/
 |   |-- day5/
 |   |-- day6/
-|   `-- day7/
+|   |-- day7/
+|   `-- day9/
 |-- tests/
+|   `-- validate_repository.py
 |-- README.md
 |-- PROJECT_PROGRESS.md
 |-- LICENSE
 `-- .gitignore
 ```
-
 ## Validation
 
 All 15 rules have been validated individually and together using Sigma CLI 3.1.0.
 
-Complete-library validation command:
+### Sigma CLI Validation
+
+Validate the complete rule library:
 
 ```powershell
 sigma check rules
 ```
 
-Complete-library validation result:
+Expected result:
 
 ```text
 Found 0 errors, 0 condition errors and 0 issues.
@@ -150,7 +162,46 @@ No condition errors found.
 No validation issues found.
 ```
 
-Validation confirms valid Sigma syntax, detection-condition structure, MITRE ATT&CK tags, and supported quality checks.
+### Repository Quality Checks
+
+Run the automated repository test:
+
+```powershell
+python tests\validate_repository.py
+```
+
+The test confirms:
+
+- Exactly 15 Sigma rules are present.
+- Rule UUIDs and titles are valid and unique.
+- Required metadata and MITRE ATT&CK tags are present.
+- Every rule has corresponding analyst documentation.
+- Internal Markdown links resolve correctly.
+- The README links to all 15 rules.
+- No trailing whitespace, YAML tabs, or damaged characters are present.
+
+Current result:
+
+```text
+Checks passed: 8
+Errors found: 0
+All repository quality checks passed.
+```
+
+### Continuous Integration
+
+The [GitHub Actions validation workflow](.github/workflows/validate.yml) automatically runs Sigma CLI validation and repository quality checks:
+
+- On every push to `main`.
+- On every pull request.
+- When manually started from GitHub Actions.
+
+### Validation Evidence
+
+- [Complete Sigma library validation](screenshots/day9/complete_sigma_validation.png)
+- [Automated repository quality checks](screenshots/day9/repository_quality_checks.png)
+
+Validation confirms valid Sigma syntax, detection-condition structure, required metadata, MITRE ATT&CK tags, documentation coverage, and supported repository-quality checks.
 
 Production deployments still require environment-specific field mapping, testing, baselining, tuning, and exception management.
 

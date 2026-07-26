@@ -8,7 +8,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - **Rules completed:** 15 of 15
 - **Development period:** 10 days
 - **Current version:** Pre-release
-- **Current phase:** Day 8 professional documentation completed
+- **Current phase:** Day 9 testing and repository polish completed
 
 ## Development Roadmap
 
@@ -22,7 +22,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Day 6 | Irish/European threats, reconnaissance, and lateral movement | Completed |
 | Day 7 | Complete 15 rules and perform attack-chain coverage review | Completed |
 | Day 8 | Complete professional documentation | Completed |
-| Day 9 | Validate rules, capture screenshots, and polish repository | Not Started |
+| Day 9 | Validate rules, capture screenshots, and polish repository | Completed |
 | Day 10 | Final review, v1.0 release, LinkedIn, CV, and interview preparation | Not Started |
 
 ## Day 1 - Repository Foundation
@@ -208,6 +208,35 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Updated the project README with direct links to the threat-landscape, Sigma-usage, attack-chain, and rule-structure documentation.
 - Confirmed that all new and modified Markdown files pass Git formatting checks.
 
+## Day 9 - Testing and Repository Polish
+
+**Date:** 26 July 2026
+**Status:** Completed
+
+### Completed
+
+- Confirmed that the local repository was clean and synchronised with `origin/main`.
+- Confirmed the active Python virtual environment and Sigma CLI 3.1.0 installation.
+- Validated the complete fifteen-rule library with Sigma CLI.
+- Confirmed 0 errors, 0 condition errors, and 0 validation issues.
+- Confirmed that the repository contains exactly 15 Sigma YAML rules.
+- Verified that all rule UUIDs are unique.
+- Verified that every rule contains the required Sigma metadata fields.
+- Confirmed that every rule contains at least one MITRE ATT&CK technique tag.
+- Checked all internal Markdown links and confirmed that no broken local links were present.
+- Checked the documentation for damaged encoding characters.
+- Reviewed `.gitignore` and confirmed that virtual environments, secrets, caches, IDE settings, and temporary files are excluded.
+- Confirmed that Git is not tracking virtual environments, environment files, Python cache files, or compiled Python files.
+- Created `tests/validate_repository.py` to provide repeatable repository-quality checks.
+- Added automated checks for rule count, required metadata, UUID uniqueness, title uniqueness, ATT&CK tags, documentation coverage, Markdown links, README inventory, formatting, and encoding.
+- Executed the automated repository test successfully with 8 checks passed and 0 errors.
+- Created a GitHub Actions workflow to run Sigma validation and repository-quality checks on pushes and pull requests.
+- Added validation, rule-count, and MIT licence badges to the README.
+- Expanded the README validation section with local testing, continuous integration, and validation evidence.
+- Updated the documented repository structure to include GitHub Actions, testing, and the new professional guides.
+- Captured final Sigma CLI and automated repository-quality validation evidence.
+- Confirmed that the polished README passes all automated repository checks.
+
 ## Rule Development Progress
 
 | # | Rule | Category | Status | MITRE ATT&CK |
@@ -251,3 +280,4 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Pre-release - Day 6 | 26 July 2026 | Three validated European threat, reconnaissance, and lateral-movement rules and thirteen-rule library validation |
 | Pre-release - Day 7 | 26 July 2026 | Completed fifteen-rule library and end-to-end attack-chain coverage review |
 | Pre-release - Day 8 | 26 July 2026 | Added Irish and European threat-landscape and Sigma usage documentation |
+| Pre-release - Day 9 | 26 July 2026 | Added automated testing, continuous validation, final evidence, and repository polish |
