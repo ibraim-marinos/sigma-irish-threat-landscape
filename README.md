@@ -1,6 +1,7 @@
 # Sigma Rule Library - Irish Threat Landscape
 
 [![Validate Sigma Library](https://github.com/ibraim-marinos/sigma-irish-threat-landscape/actions/workflows/validate.yml/badge.svg)](https://github.com/ibraim-marinos/sigma-irish-threat-landscape/actions/workflows/validate.yml)
+[![Release: v1.0.0](https://img.shields.io/badge/Release-v1.0.0-blueviolet)](https://github.com/ibraim-marinos/sigma-irish-threat-landscape/releases/tag/v1.0.0)
 [![Sigma Rules](https://img.shields.io/badge/Sigma%20Rules-15-blue)](rules/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -8,7 +9,7 @@ A portfolio-focused library of original Sigma detection rules addressing securit
 
 ## Project Status
 
-> All 15 planned Sigma detection rules have been completed, documented, and validated. Final review and v1.0 release preparation remain in progress.
+> Version 1.0.0 is complete. All 15 Sigma detection rules have been documented, mapped to MITRE ATT&CK, and validated through Sigma CLI and automated repository-quality checks.
 
 ## Overview
 
@@ -67,6 +68,7 @@ The project uses threat-informed detection hypotheses, Windows and Microsoft 365
 
 Start with these project-level guides:
 
+- [Version History and Release Notes](CHANGELOG.md)
 - [Irish and European Threat Landscape](docs/threat_landscape_ireland.md)
 - [Sigma Usage and Validation Guide](docs/sigma_usage.md)
 - [End-to-End Attack-Chain Coverage](docs/attack_chain_coverage.md)
@@ -136,6 +138,7 @@ sigma-irish-threat-landscape/
 |   `-- day9/
 |-- tests/
 |   `-- validate_repository.py
+|-- CHANGELOG.md
 |-- README.md
 |-- PROJECT_PROGRESS.md
 |-- LICENSE

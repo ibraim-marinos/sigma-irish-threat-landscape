@@ -7,8 +7,9 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - **Target:** 15 original Sigma detection rules
 - **Rules completed:** 15 of 15
 - **Development period:** 10 days
-- **Current version:** Pre-release
-- **Current phase:** Day 9 testing and repository polish completed
+- **Current version:** 1.0.0
+- **Current phase:** Day 10 final review and v1.0.0 release
+
 
 ## Development Roadmap
 
@@ -23,7 +24,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Day 7 | Complete 15 rules and perform attack-chain coverage review | Completed |
 | Day 8 | Complete professional documentation | Completed |
 | Day 9 | Validate rules, capture screenshots, and polish repository | Completed |
-| Day 10 | Final review, v1.0 release, LinkedIn, CV, and interview preparation | Not Started |
+| Day 10 | Final review, v1.0 release, LinkedIn, CV, and interview preparation | Completed |
 
 ## Day 1 - Repository Foundation
 
@@ -237,6 +238,32 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 - Captured final Sigma CLI and automated repository-quality validation evidence.
 - Confirmed that the polished README passes all automated repository checks.
 
+## Day 10 - Final Review and v1.0.0 Release
+
+**Date:** 27 July 2026
+**Status:** Completed
+
+### Completed
+
+- Confirmed that the repository was clean and synchronised with `origin/main`.
+- Performed the final complete-library validation with Sigma CLI 3.1.0.
+- Confirmed 0 rule errors, 0 condition errors, and 0 validation issues.
+- Executed the automated repository-quality test.
+- Confirmed 8 repository checks passed with 0 errors.
+- Confirmed that the GitHub Actions validation workflow completes successfully.
+- Performed a final visual review of the GitHub repository.
+- Confirmed that validation, rule-count, and licence badges display correctly.
+- Created `CHANGELOG.md` to document version 1.0.0.
+- Documented the complete rule set, validation results, attack coverage, deployment considerations, and development history.
+- Updated the README project status for version 1.0.0.
+- Added the version 1.0.0 release badge.
+- Added the changelog to the project documentation and repository structure.
+- Prepared the version 1.0.0 release commit and Git tag.
+- Prepared the GitHub Release notes for version 1.0.0.
+- Prepared a professional LinkedIn project announcement.
+- Prepared concise CV bullets describing the project.
+- Prepared a project explanation and technical questions for SOC analyst interviews.
+
 ## Rule Development Progress
 
 | # | Rule | Category | Status | MITRE ATT&CK |
@@ -267,6 +294,7 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | 25 July 2026 | Complete ten-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 26 July 2026 | Complete thirteen-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
 | 26 July 2026 | Complete fifteen-rule library | Sigma CLI 3.1.0 | 0 errors, 0 condition errors, 0 issues |
+| 27 July 2026 | Final version 1.0.0 validation | Sigma CLI 3.1.0 and automated repository test | 0 Sigma issues, 8 checks passed, 0 repository errors |
 
 ## Version History
 
@@ -281,3 +309,4 @@ This document tracks the development of the Sigma Rule Library - Irish Threat La
 | Pre-release - Day 7 | 26 July 2026 | Completed fifteen-rule library and end-to-end attack-chain coverage review |
 | Pre-release - Day 8 | 26 July 2026 | Added Irish and European threat-landscape and Sigma usage documentation |
 | Pre-release - Day 9 | 26 July 2026 | Added automated testing, continuous validation, final evidence, and repository polish |
+| 1.0.0 | 27 July 2026 | First stable portfolio release with 15 documented and continuously validated Sigma detection rules |

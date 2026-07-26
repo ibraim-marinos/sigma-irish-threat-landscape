@@ -256,6 +256,7 @@ def collect_markdown_files() -> list[Path]:
     markdown_files = [
         REPOSITORY_ROOT / "README.md",
         REPOSITORY_ROOT / "PROJECT_PROGRESS.md",
+        REPOSITORY_ROOT / "CHANGELOG.md",
     ]
 
     markdown_files.extend(
